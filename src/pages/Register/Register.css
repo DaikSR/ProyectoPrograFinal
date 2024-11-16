@@ -1,0 +1,16 @@
+.register-page {
+    font-family: Arial, sans-serif;
+    margin: 2rem auto;
+    text-align: center;
+  }
+  
+  .register-page form {
+    display: inline-block;
+    text-align: left;
+  }
+  
+  .register-page label {
+    display: block;
+    margin: 1rem 0;
+  }
+  

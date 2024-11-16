@@ -1,0 +1,37 @@
+.landing-page {
+    font-family: Arial, sans-serif;
+  }
+  
+  .navbar {
+    background-color: #ffe4e1;
+    padding: 1rem;
+    text-align: center;
+  }
+  
+  .navbar ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+  }
+  
+  .navbar li {
+    margin: 0 10px;
+  }
+  
+  .hero-section {
+    background: #f8f8f8;
+    padding: 2rem;
+    text-align: center;
+  }
+  
+  .products-section {
+    padding: 2rem;
+  }
+  
+  .product-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+  
