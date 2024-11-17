@@ -1,13 +1,11 @@
 import React, { useState } from "react";
-import "./Productos.css";  // Asegúrate de tener el archivo CSS actualizado
+import "./Productos.css"; 
 
 const Productos = () => {
   const [searchVisible, setSearchVisible] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
-
-  // Función para manejar el clic en la lupa
   const handleSearchClick = () => {
-    setSearchVisible(!searchVisible);  // Alterna la visibilidad de la barra de búsqueda
+    setSearchVisible(!searchVisible); 
   };
 
   return (
