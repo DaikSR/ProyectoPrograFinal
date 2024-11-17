@@ -1,0 +1,55 @@
+/* src/pages/Productos/Productos.css */
+
+/* Estilos para la línea roja en el encabezado */
+.contact-info {
+    background-color: red;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0;
+  }
+  
+  /* Estilos para el cuadro verde debajo de la línea roja */
+  .sorpresa-box {
+    background-color: green;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0;
+    position: relative;  /* Esto es importante para alinear la lupa y la barra de búsqueda */
+  }
+  
+  /* Estilos para el contenedor que contiene tanto la barra de búsqueda como la lupa */
+  .search-container {
+    display: inline-flex;
+    align-items: center;
+    position: absolute;
+    right: 10px;  /* Esto mantiene la lupa cerca del borde derecho del título */
+    margin-left: 10px;
+  }
+  
+  /* Estilos para la lupa */
+  .search-icon {
+    cursor: pointer;
+    font-size: 24px; /* Tamaño más grande para la lupa */
+    margin-left: 10px;  /* Separación entre la barra de búsqueda y la lupa */
+  }
+  
+  /* Estilos para la barra de búsqueda */
+  .search-bar {
+    display: flex;
+    align-items: center;
+  }
+  
+  .search-bar input {
+    padding: 8px;
+    width: 200px;  /* Puedes ajustar el tamaño de la barra de búsqueda */
+    font-size: 16px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+  }
+  

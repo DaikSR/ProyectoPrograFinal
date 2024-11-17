@@ -1,4 +1,6 @@
+// src/pages/LandingPage/LandingPage.jsx
 import React from "react";
+import { Link } from "react-router-dom"; // Importa Link de react-router-dom
 import "./LandingPage.css";
 
 const LandingPage = () => {
@@ -8,7 +10,7 @@ const LandingPage = () => {
         <nav className="navbar">
           <h1>🌸 Sorprende Lima 🌸</h1>
           <ul>
-            <li><a href="#products">Productos</a></li>
+            <li><Link to="/productos">Productos</Link></li> {/* Usar Link para navegación */}
             <li><a href="#about">Nosotros</a></li>
             <li><a href="/login">Iniciar Sesión</a></li>
             <li><a href="/register">Registrarse</a></li>
@@ -41,4 +43,3 @@ const LandingPage = () => {
 };
 
 export default LandingPage;
-
