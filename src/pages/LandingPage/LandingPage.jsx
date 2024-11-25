@@ -1,40 +1,38 @@
-// src/pages/LandingPage/LandingPage.jsx
 import React from "react";
-import { Link } from "react-router-dom"; // Importa Link de react-router-dom
+import { Link } from "react-router-dom";
 import "./LandingPage.css";
+
+const productosDestacados = [
+  { id: 1, titulo: "Rosas Rojas", imagen: "/assets/roses.jpg", precio: "$25.00" },
+  { id: 2, titulo: "Tulipanes", imagen: "/assets/tulips.jpg", precio: "$20.00" },
+  { id: 3, titulo: "Lirios Blancos", imagen: "/assets/lilies.jpg", precio: "$30.00" },
+  { id: 4, titulo: "Orquídeas", imagen: "/assets/orchids.jpg", precio: "$35.00" },
+];
 
 const LandingPage = () => {
   return (
     <div className="landing-page">
-      <header>
-        <nav className="navbar">
-          <h1>🌸 Sorprende Lima 🌸</h1>
-          <ul>
-            <li><Link to="/productos">Productos</Link></li> {/* Usar Link para navegación */}
-            <li><a href="#about">Nosotros</a></li>
-            <li><a href="/login">Iniciar Sesión</a></li>
-            <li><a href="/register">Registrarse</a></li>
-          </ul>
-        </nav>
-      </header>
-
       <main>
-        <section id="hero" className="hero-section">
-          <h2>¡Sorprende a tus seres queridos con un detalle especial!</h2>
-          <button>Ver Productos</button>
-        </section>
         <section id="products" className="products-section">
           <h2>Productos Destacados</h2>
           <div className="product-grid">
-            <div className="product">
-              <img src="/assets/roses.jpg" alt="Rosas" />
-              <h3>Rosas Rojas</h3>
-              <p>$25.00</p>
-            </div>
+            {productosDestacados.map((producto) => (
+              <div key={producto.id} className="producto-card">
+                <img
+                  src={producto.imagen}
+                  alt={producto.titulo}
+                  className="producto-imagen"
+                />
+                <h3 className="producto-titulo">{producto.titulo}</h3>
+                <p className="producto-precio">{producto.precio}</p>
+              </div>
+            ))}
           </div>
+          <Link to="/productos" className="ver-mas-link">
+            Ver más productos →
+          </Link>
         </section>
       </main>
-
       <footer>
         <p>© 2024 Tienda de Flores y Peluches. Todos los derechos reservados.</p>
       </footer>

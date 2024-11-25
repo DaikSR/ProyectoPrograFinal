@@ -1,0 +1,32 @@
+.carrito-container {
+    padding: 2rem;
+    text-align: center;
+    font-family: Arial, sans-serif;
+  }
+  
+  .carrito-container h2 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 1.5rem;
+  }
+  
+  .carrito-vacio {
+    font-size: 1.2rem;
+    color: #888;
+  }
+  
+  .carrito-lista {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .carrito-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+    background-color: #f9f9f9;
+  }
+  

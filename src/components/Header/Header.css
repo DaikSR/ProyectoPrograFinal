@@ -1,0 +1,86 @@
+/* Header global */
+.navbar {
+    background-color: #ffe4e1;
+    padding: 0.5rem; /* Reduce el padding para achicar el fondo rosa */
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+  
+  /* Contenedor del contenido del Header */
+  .navbar-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  /* Título del Header */
+  .navbar-title {
+    text-decoration: none;
+    color: black;
+    font-size: 2rem; /* Aumenta el tamaño del texto del título */
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem; /* Espaciado entre los íconos 🌸 y el texto */
+  }
+  
+  /* Tamaño de los íconos 🌸 en el título */
+  .navbar-title span {
+    font-size: 1.5rem; /* Reduce el tamaño de los íconos 🌸 */
+  }
+  
+  .navbar-title:hover {
+    color: #ff69b4; /* Efecto hover solo para el título */
+  }
+  
+  /* Lista de enlaces */
+  .navbar ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+    margin: 0.5rem 0;
+  }
+  
+  .navbar li {
+    margin: 0 10px; /* Espaciado entre los subtítulos */
+  }
+  
+  /* Estilo de los subtítulos */
+  .navbar a {
+    text-decoration: none;
+    font-size: 1rem; /* Mantén el tamaño de los subtítulos */
+    color: black;
+    transition: color 0.3s ease;
+  }
+  
+  .navbar a:hover {
+    color: #ff69b4;
+  }
+  
+  /* Contenedor del buscador */
+  .search-container {
+    margin-top: 5px; /* Reduce el espacio superior */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .search-container input {
+    padding: 8px;
+    width: 200px;
+    font-size: 16px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+  }
+  
+  .search-icon {
+    margin-left: 10px;
+    cursor: pointer;
+    font-size: 18px;
+  }
+  

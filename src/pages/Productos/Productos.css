@@ -1,51 +1,49 @@
-.contact-info {
-    background-color: red;
-    color: white;
-    text-align: center;
-    padding: 10px 0;
-    font-size: 18px;
-    font-weight: bold;
-    margin: 0;
-  }
-  
-  
-  .sorpresa-box {
-    background-color: green;
-    color: white;
-    text-align: center;
-    padding: 20px;
-    font-size: 24px;
-    font-weight: bold;
-    margin: 0;
-    position: relative; 
-  }
-  
+.productos-container {
+  padding: 2rem;
+  font-family: Arial, sans-serif;
+}
 
-  .search-container {
-    display: inline-flex;
-    align-items: center;
-    position: absolute;
-    right: 10px;  
-    margin-left: 10px;
-  }
-  
+.productos-titulo {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 2rem;
+  color: #333;
+}
 
-  .search-icon {
-    cursor: pointer;
-    font-size: 24px; 
-    margin-left: 10px;  
-  }
+.productos-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
 
-  .search-bar {
-    display: flex;
-    align-items: center;
-  }
-  
-  .search-bar input {
-    padding: 8px;
-    width: 200px; 
-    font-size: 16px;
-    border-radius: 4px;
-    border: 1px solid #ccc;
-  }
-  
+.producto-card {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 1rem;
+  text-align: center;
+  background-color: #f9f9f9;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.producto-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.producto-imagen {
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+}
+
+.producto-titulo {
+  font-size: 1.25rem;
+  margin: 0.5rem 0;
+  color: #555;
+}
+
+.producto-precio {
+  font-size: 1rem;
+  color: #888;
+}
