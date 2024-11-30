@@ -29,4 +29,33 @@
     margin-bottom: 1rem;
     background-color: #f9f9f9;
   }
+
+  .productos-disponibles {
+    margin-bottom: 2rem;
+  }
+  
+  .producto-disponible {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 0.5rem;
+    background-color: #f1f1f1;
+  }
+  
+  .agregar-boton {
+    padding: 0.5rem 1rem;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .agregar-boton:hover {
+    background-color: #0056b3;
+  }
+  
   

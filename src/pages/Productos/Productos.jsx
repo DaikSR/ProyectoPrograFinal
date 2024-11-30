@@ -1,30 +1,29 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import "./Productos.css";
 
 const productos = [
-  { id: 1, titulo: "Producto 1", imagenOriginal: "/Imagenes/1.jpg", precio: "$10.00" },
-  { id: 2, titulo: "Producto 2", imagenOriginal: "/Imagenes/2.jpg", imagenHover: "/Imagenes/2-hover.jpg", precio: "$15.00" },
-  { id: 3, titulo: "Producto 3", imagenOriginal: "/Imagenes/3.jpg", imagenHover: "/Imagenes/3-hover.jpg", precio: "$20.00" },
-  { id: 4, titulo: "Producto 4", imagenOriginal: "/Imagenes/4.jpg", imagenHover: "/Imagenes/4-hover.jpg", precio: "$25.00" },
-  { id: 5, titulo: "Producto 5", imagenOriginal: "/Imagenes/5.jpg", imagenHover: "/Imagenes/5-hover.jpg", precio: "$30.00" },
-  { id: 6, titulo: "Producto 6", imagenOriginal: "/Imagenes/6.jpg", imagenHover: "/Imagenes/6-hover.jpg", precio: "$35.00" },
-  { id: 7, titulo: "Producto 7", imagenOriginal: "/Imagenes/7.jpg", imagenHover: "/Imagenes/7-hover.jpg", precio: "$40.00" },
-  { id: 8, titulo: "Producto 8", imagenOriginal: "/Imagenes/8.jpg", imagenHover: "/Imagenes/8-hover.jpg", precio: "$45.00" },
-  { id: 9, titulo: "Producto 9", imagenOriginal: "/Imagenes/9.jpg", imagenHover: "/Imagenes/9-hover.jpg", precio: "$50.00" },
-  { id: 10, titulo: "Producto 10", imagenOriginal: "/Imagenes/10.jpg", precio: "$55.00" },
-  { id: 11, titulo: "Producto 11", imagenOriginal: "/Imagenes/11.jpg", imagenHover: "/Imagenes/11-hover.jpg", precio: "$60.00" },
-  { id: 12, titulo: "Producto 12", imagenOriginal: "/Imagenes/12.jpg", imagenHover: "/Imagenes/12-hover.jpg", precio: "$65.00" },
-  { id: 13, titulo: "Producto 13", imagenOriginal: "/Imagenes/13.jpg", imagenHover: "/Imagenes/13-hover.jpg", precio: "$70.00" },
-  { id: 14, titulo: "Producto 14", imagenOriginal: "/Imagenes/14.jpg", imagenHover: "/Imagenes/14-hover.jpg", precio: "$75.00" },
-  { id: 15, titulo: "Producto 15", imagenOriginal: "/Imagenes/15.jpg", imagenHover: "/Imagenes/15-hover.jpg", precio: "$80.00" },
-  { id: 16, titulo: "Producto 16", imagenOriginal: "/Imagenes/16.jpg", imagenHover: "/Imagenes/16-hover.jpg", precio: "$85.00" },
+  { id: 1, titulo: "TAZA METALICA NAVIDAD CON DULCES", imagenOriginal: "/Imagenes/1.jpg", precio: "S/. 70.00 PEN" },
+  { id: 2, titulo: "GIFT BOX CELEBREMOS NAVIDAD", imagenOriginal: "/Imagenes/2.jpg", imagenHover: "/Imagenes/2-hover.jpg", precio: "S/. 135.00 PEN" },
+  { id: 3, titulo: "GIFT BOX SWEETIE NAVIDEÑO", imagenOriginal: "/Imagenes/3.jpg", imagenHover: "/Imagenes/3-hover.jpg", precio: "S/. 170.00 PEN" },
+  { id: 4, titulo: "MINI BOX NAVIDEÑO", imagenOriginal: "/Imagenes/4.jpg", imagenHover: "/Imagenes/4-hover.jpg", precio: "S/. 140.00 PEN" },
+  { id: 5, titulo: "CAJA DE TRUFAS NAVIDEñAS", imagenOriginal: "/Imagenes/5.jpg", imagenHover: "/Imagenes/5-hover.jpg", precio: "S/. 59.00 PEN" },
+  { id: 6, titulo: "GIFT BOX COCOA", imagenOriginal: "/Imagenes/6.jpg", imagenHover: "/Imagenes/6-hover.jpg", precio: "S/. 195.00 PEN" },
+  { id: 7, titulo: "BOX NAVIDAD FLORAL", imagenOriginal: "/Imagenes/7.jpg", imagenHover: "/Imagenes/7-hover.jpg", precio: "S/. 95.00 PEN" },
+  { id: 8, titulo: "CAJA CUPCAKES NAVIDAD", imagenOriginal: "/Imagenes/8.jpg", imagenHover: "/Imagenes/8-hover.jpg", precio: "S/. 80.00 PEN" },
+  { id: 9, titulo: "MAXI JAR GALLETITAS NAVIDAD", imagenOriginal: "/Imagenes/9.jpg", imagenHover: "/Imagenes/9-hover.jpg", precio: "S/. 39.00 PEN" },
+  { id: 10, titulo: "CASITA DE JENGIBRE NAVIDAD", imagenOriginal: "/Imagenes/10.jpg", precio: "S/. 85.00 PEN" },
+  { id: 11, titulo: "BENTO CAKE SANTA", imagenOriginal: "/Imagenes/11.jpg", imagenHover: "/Imagenes/11-hover.jpg", precio: "S/. 65.00 PEN" },
+  { id: 12, titulo: "BOX DULCERO NAVIDAD", imagenOriginal: "/Imagenes/12.jpg", imagenHover: "/Imagenes/12-hover.jpg", precio: "S/. 99.00 PEN" },
+  { id: 13, titulo: "GIFT BOX ESTRELLA NAVIDAD", imagenOriginal: "/Imagenes/13.jpg", imagenHover: "/Imagenes/13-hover.jpg", precio: "S/. 260.00 PEN" },
+  { id: 14, titulo: "GIFT BOX ARBOL DE NAVIDAD", imagenOriginal: "/Imagenes/14.jpg", imagenHover: "/Imagenes/14-hover.jpg", precio: "S/. 210.00 PEN" },
+  { id: 15, titulo: "MINI BOX ELFO NAVIDEÑO", imagenOriginal: "/Imagenes/15.jpg", imagenHover: "/Imagenes/15-hover.jpg", precio: "S/. 120.00 PEN" },
+  { id: 16, titulo: "BENTO CAKE MEME NAVIDAD", imagenOriginal: "/Imagenes/16.jpg", imagenHover: "/Imagenes/16-hover.jpg", precio: "S/. 65.00 PEN" },
 ];
 
 const Productos = () => {
-  // Usamos un objeto para manejar las imágenes de manera individual
   const [imagenes, setImagenes] = useState({});
 
-  // Función para manejar el cambio de imagen al pasar el cursor
   const handleMouseEnter = (id) => {
     setImagenes((prevState) => ({
       ...prevState,
@@ -32,7 +31,6 @@ const Productos = () => {
     }));
   };
 
-  // Función para restaurar la imagen original al quitar el cursor
   const handleMouseLeave = (id) => {
     setImagenes((prevState) => ({
       ...prevState,
@@ -46,13 +44,15 @@ const Productos = () => {
       <div className="productos-grid">
         {productos.map((producto) => (
           <div key={producto.id} className="producto-card">
-            <img
-              src={imagenes[producto.id] || producto.imagenOriginal} // Usamos la imagenHover si existe en el estado
-              alt={producto.titulo}
-              className="producto-imagen"
-              onMouseEnter={() => handleMouseEnter(producto.id)} // Cambia la imagen del producto específico
-              onMouseLeave={() => handleMouseLeave(producto.id)} // Restaura la imagen original del producto específico
-            />
+            <Link to={`/producto/${producto.id}`}>
+              <img
+                src={imagenes[producto.id] || producto.imagenOriginal}
+                alt={producto.titulo}
+                className="producto-imagen"
+                onMouseEnter={() => handleMouseEnter(producto.id)}
+                onMouseLeave={() => handleMouseLeave(producto.id)}
+              />
+            </Link>
             <h3 className="producto-titulo">{producto.titulo}</h3>
             <p className="producto-precio">{producto.precio}</p>
           </div>
