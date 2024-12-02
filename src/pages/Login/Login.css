@@ -1,14 +1,14 @@
-/* Contenedor principal */
+
 .login-container {
   display: flex;
   justify-content: center;
-  align-items: flex-start; /* Ajusta para que el contenido no esté tan abajo */
-  height: 90vh; /* Reduce la altura ocupada */
-  padding-top: 3rem; /* Espaciado desde la parte superior */
+  align-items: flex-start; 
+  height: 90vh; 
+  padding-top: 3rem; 
   font-family: Arial, sans-serif;
 }
 
-/* Sección de iniciar sesión */
+
 .login-section {
   width: 100%;
   max-width: 400px;
@@ -67,7 +67,6 @@
   background-color: #b71c1c;
 }
 
-/* Botón para crear cuenta */
 .register-button {
   background-color: #b71c1c;
   margin-top: 0.5rem;

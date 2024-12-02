@@ -33,7 +33,6 @@ const Login = () => {
 
   return (
     <div className="login-container">
-      {/* Sección de Iniciar Sesión */}
       <div className="login-section">
         <h2>ACCESO DEL CLIENTE</h2>
         <form onSubmit={handleSubmit}>

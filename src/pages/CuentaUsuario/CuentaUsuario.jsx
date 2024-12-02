@@ -7,7 +7,6 @@ const CuentaUsuario = () => {
   const [ordenes, setOrdenes] = useState([]);
 
   useEffect(() => {
-    // Simular una solicitud al backend
     setUsuario({ nombre: "Juan Perez", correo: "juan@correo.com" });
     setOrdenes([
       { id: 1, fecha: "2024-12-01", total: "S/. 150.00" },

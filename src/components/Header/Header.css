@@ -1,7 +1,7 @@
-/* Header global */
+
 .navbar {
     background-color: #ffe4e1;
-    padding: 0.5rem; /* Reduce el padding para achicar el fondo rosa */
+    padding: 0.5rem; 
     text-align: center;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     position: sticky;
@@ -9,35 +9,35 @@
     z-index: 1000;
   }
   
-  /* Contenedor del contenido del Header */
+
   .navbar-content {
     display: flex;
     flex-direction: column;
     align-items: center;
   }
   
-  /* Título del Header */
+
   .navbar-title {
     text-decoration: none;
     color: black;
-    font-size: 2rem; /* Aumenta el tamaño del texto del título */
+    font-size: 2rem;
     font-weight: bold;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 0.5rem; /* Espaciado entre los íconos 🌸 y el texto */
+    gap: 0.5rem; 
   }
   
-  /* Tamaño de los íconos 🌸 en el título */
+
   .navbar-title span {
-    font-size: 1.5rem; /* Reduce el tamaño de los íconos 🌸 */
+    font-size: 1.5rem; 
   }
   
   .navbar-title:hover {
-    color: #ff69b4; /* Efecto hover solo para el título */
+    color: #ff69b4; 
   }
   
-  /* Lista de enlaces */
+
   .navbar ul {
     display: flex;
     justify-content: center;
@@ -47,13 +47,13 @@
   }
   
   .navbar li {
-    margin: 0 10px; /* Espaciado entre los subtítulos */
+    margin: 0 10px; 
   }
   
-  /* Estilo de los subtítulos */
+
   .navbar a {
     text-decoration: none;
-    font-size: 1rem; /* Mantén el tamaño de los subtítulos */
+    font-size: 1rem; 
     color: black;
     transition: color 0.3s ease;
   }
@@ -62,9 +62,9 @@
     color: #ff69b4;
   }
   
-  /* Contenedor del buscador */
+
   .search-container {
-    margin-top: 5px; /* Reduce el espacio superior */
+    margin-top: 5px; 
     display: flex;
     justify-content: center;
     align-items: center;

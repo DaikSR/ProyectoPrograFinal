@@ -1,15 +1,15 @@
-/* Contenedor principal */
+
 .register-container {
   display: flex;
   justify-content: center;
-  align-items: flex-start; /* Cambiado para que el formulario no esté centrado verticalmente */
-  height: 90vh; /* Reduce la altura total del contenedor */
-  padding-top: 3rem; /* Agrega espacio desde la parte superior */
+  align-items: flex-start; 
+  height: 90vh; 
+  padding-top: 3rem; 
   font-family: Arial, sans-serif;
   background-color: #fff;
 }
 
-/* Sección de registro */
+
 .register-section {
   width: 100%;
   max-width: 400px;

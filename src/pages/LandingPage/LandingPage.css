@@ -1,9 +1,9 @@
-/* Contenedor general */
+
 .landing-page {
   font-family: Arial, sans-serif;
 }
 
-/* Sección de productos destacados */
+
 .products-section {
   padding: 2rem;
   text-align: center;
@@ -17,12 +17,11 @@
 
 .product-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* Cuadrícula de 2x2 */
+  grid-template-columns: repeat(2, 1fr); 
   gap: 1.5rem;
   justify-content: center;
 }
 
-/* Tarjeta de producto */
 .producto-card {
   border: 1px solid #ccc;
   border-radius: 8px;
@@ -55,7 +54,7 @@
   color: #888;
 }
 
-/* Enlace "Ver más productos" */
+
 .ver-mas-link {
   display: inline-block;
   margin-top: 2rem;

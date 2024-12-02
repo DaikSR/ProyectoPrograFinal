@@ -18,13 +18,11 @@ const Header = () => {
   return (
     <header className="navbar">
       <div className="navbar-content">
-        {/* Título con íconos 🌸 y texto */}
         <h1 className="navbar-title">
           <span>🌸</span>
           <Link to="/">Sorprende Lima</Link>
           <span>🌸</span>
         </h1>
-        {/* Subtítulos */}
         <ul>
           <li>
             <Link to="/productos">🌼 Productos</Link>
