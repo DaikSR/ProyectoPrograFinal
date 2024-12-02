@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "./LandingPage.css";
+import axios from "axios";
+import { BASE_API } from "../../contants/api.constant";
 
 const productosDestacados = [
   { id: 1, titulo: "Rosas Rojas", imagen: "/assets/roses.jpg", precio: "$25.00" },
@@ -10,16 +12,37 @@ const productosDestacados = [
 ];
 
 const LandingPage = () => {
+
+
+  
+  const [productos, setProductos] = useState([])
+
+  async function getProducts(){
+    try {
+      const response = await axios.get(`${BASE_API}/products`)
+
+      console.log(response)
+      setProductos(response.data)
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  useEffect(() => {
+    getProducts()
+  }, [])
+  
+
   return (
     <div className="landing-page">
       <main>
         <section id="products" className="products-section">
           <h2>Productos Destacados</h2>
           <div className="product-grid">
-            {productosDestacados.map((producto) => (
+            {productos.slice(0,4).map((producto) => (
               <div key={producto.id} className="producto-card">
                 <img
-                  src={producto.imagen}
+                  src={producto.image}
                   alt={producto.titulo}
                   className="producto-imagen"
                 />

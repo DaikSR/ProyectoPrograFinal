@@ -1,6 +1,9 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "./Productos.css";
+import { BASE_API } from "../../contants/api.constant";
+import axios from "axios";
+import { useValidateSession } from "../../hooks/validate-session";
 
 const productos = [
   { id: 1, titulo: "TAZA METALICA NAVIDAD CON DULCES", imagenOriginal: "/Imagenes/1.jpg", precio: "S/. 70.00 PEN" },
@@ -38,6 +41,36 @@ const Productos = () => {
     }));
   };
 
+  const [productos, setProductos] = useState([])
+
+  async function getProducts(){
+    try {
+      const response = await axios.get(`${BASE_API}/products`)
+
+      setProductos(response.data)
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  useEffect(() => {
+    getProducts()
+  }, [])
+
+  async function handleSelectForCart(producto){
+    try {
+       await axios.get(`${BASE_API}/products/${producto.id}/cart`,{
+        headers:{
+          Authorization:`Bearer ${localStorage.getItem("token")}`
+        }
+      })
+      
+    } catch (error) {
+      alert("Error al agregar producto, reinicie la sesion")
+    }
+  }
+  
+
   return (
     <div className="productos-container">
       <h2 className="productos-titulo">Productos</h2>
@@ -46,7 +79,7 @@ const Productos = () => {
           <div key={producto.id} className="producto-card">
             <Link to={`/producto/${producto.id}`}>
               <img
-                src={imagenes[producto.id] || producto.imagenOriginal}
+                src={producto.image}
                 alt={producto.titulo}
                 className="producto-imagen"
                 onMouseEnter={() => handleMouseEnter(producto.id)}
@@ -55,6 +88,13 @@ const Productos = () => {
             </Link>
             <h3 className="producto-titulo">{producto.titulo}</h3>
             <p className="producto-precio">{producto.precio}</p>
+
+            {
+              useValidateSession()&&(
+
+                <button type="button" onClick={()=>handleSelectForCart(producto)}  style={{cursor:"pointer", backgroundColor:"red", color:"white", borderRadius:"8px", border:"none", paddingBlock:"4px"}}>Agregar al carrito</button>
+              )
+            }
           </div>
         ))}
       </div>

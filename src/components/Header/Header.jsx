@@ -1,8 +1,20 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./Header.css";
+import { useValidateSession } from "../../hooks/validate-session";
+import { UseAuthMe } from "../../hooks/auth-me";
 
 const Header = () => {
+
+  const {userData} = UseAuthMe()
+
+  console.log(userData)
+
+  function handleLogout(){
+    localStorage.removeItem("token")
+    window.location.reload()
+  }
+
   return (
     <header className="navbar">
       <div className="navbar-content">
@@ -17,9 +29,22 @@ const Header = () => {
           <li>
             <Link to="/productos">🌼 Productos</Link>
           </li>
-          <li>
-            <Link to="/login">👤 Iniciar Sesión</Link>
-          </li>
+          {
+            !useValidateSession()?(
+              <li>
+              <Link to="/login">👤 Iniciar Sesión</Link>
+            </li>
+            ):(
+              <li>
+                <span>{userData?.nombre_completo}</span>
+                {" "}
+                <span>|</span>
+                {" "}
+              <span role="button" onClick={handleLogout} style={{cursor:"pointer"}}>Salir</span>
+            </li>
+            )
+          }
+         
           <li>
             <Link to="/carrito" className="carrito-link">
               🛒 Carrito

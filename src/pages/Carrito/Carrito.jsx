@@ -1,5 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./Carrito.css";
+import { BASE_API } from "../../contants/api.constant";
+import axios from "axios";
 
 const Carrito = () => {
   // Estado del carrito
@@ -16,13 +18,44 @@ const Carrito = () => {
     { id: 2, nombre: "Bolsa Reutilizable", precio: "S/. 30" },
     { id: 3, nombre: "Cuaderno Artesanal", precio: "S/. 40" },
   ];
+  const [products, setProducts] = useState([])
+
+  async function fetchProducts(){
+    try {
+      const response = await axios.get(`${BASE_API}/cart`,{
+        headers:{
+          Authorization:`Bearer ${localStorage.getItem("token")}`
+        }
+      })
+
+      setProducts(response.data)
+    } catch (error) {
+    }
+  }
+
+ useEffect(() => {
+   fetchProducts()
+ }, [])
+
+ async function handleRemoveFromCart(producto){
+  try {
+      await axios.delete(`${BASE_API}/cart/${producto.cart_id}`,{
+        headers:{
+          Authorization:`Bearer ${localStorage.getItem("token")}`
+        }
+      })
+      window.location.reload()
+  } catch (error) {
+    
+  }
+ }
 
   return (
     <div className="carrito-container">
       <h2>Carrito de Compras</h2>
 
       {/* Mostrar productos disponibles */}
-      <div className="productos-disponibles">
+      {/* <div className="productos-disponibles">
         <h3>Productos Disponibles</h3>
         <ul>
           {productosDisponibles.map((producto) => (
@@ -37,17 +70,27 @@ const Carrito = () => {
             </li>
           ))}
         </ul>
-      </div>
+      </div> */}
 
       {/* Mostrar carrito de compras */}
-      {productos.length === 0 ? (
+      {products.length === 0 ? (
         <p className="carrito-vacio">Su carrito está vacío</p>
       ) : (
         <ul className="carrito-lista">
-          {productos.map((producto, index) => (
+          {products.map((producto, index) => (
             <li key={index} className="carrito-item">
-              <span>{producto.nombre}</span>
-              <span>{producto.precio}</span>
+              <div>
+
+              <span>{producto.product.titulo} {" "}</span>
+              <span>({producto.quantity}) - </span> 
+              <span>S/. {producto.product.precio}</span>
+              </div>
+              <span>
+                S/. {producto.quantity*producto.product.precio}
+              </span>
+              <span>
+                <button onClick={()=>handleRemoveFromCart(producto)}>Eliminar</button>
+              </span>
             </li>
           ))}
         </ul>

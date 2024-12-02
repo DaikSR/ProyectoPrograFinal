@@ -1,21 +1,49 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./Login.css";
+import { BASE_API } from "../../contants/api.constant";
+import axios from "axios"
 
 const Login = () => {
+
+
+  const [email, setEmail] = useState("")
+  const [password, setPassword] = useState("")
+
+
+
+  async function handleSubmit(event) {
+    event.preventDefault();
+    try {
+      const response = await axios.post(`${BASE_API}/auth/login`, {
+        email,password
+      })
+  
+      window.localStorage.setItem("token", response.data.token);
+      window.location.href='/productos'
+      
+    } catch (error) {
+      alert(error.response.data.message);
+    }
+   
+  }
+
+
+
+
   return (
     <div className="login-container">
       {/* Sección de Iniciar Sesión */}
       <div className="login-section">
         <h2>ACCESO DEL CLIENTE</h2>
-        <form>
+        <form onSubmit={handleSubmit}>
           <label>
             Correo Electrónico
-            <input type="email" placeholder="Ingrese su correo electrónico" />
+            <input onChange={e=> setEmail(e.target.value)} type="email" placeholder="Ingrese su correo electrónico" />
           </label>
           <label>
             Contraseña
-            <input type="password" placeholder="Ingrese su contraseña" />
+            <input onChange={e=> setPassword(e.target.value)}  type="password" placeholder="Ingrese su contraseña" />
           </label>
           <button className="login-button">INICIAR SESIÓN</button>
         </form>

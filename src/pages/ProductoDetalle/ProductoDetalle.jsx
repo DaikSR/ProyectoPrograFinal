@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import "./ProductoDetalle.css";
 
@@ -291,6 +291,9 @@ const productos = [
   }
 ];
 
+import axios from "axios"
+import { BASE_API } from "../../contants/api.constant"
+
 const ProductoDetalle = () => {
   const { id } = useParams();
   const producto = productos.find((producto) => producto.id === parseInt(id));
@@ -310,17 +313,44 @@ const ProductoDetalle = () => {
     alert("Producto agregado al carrito");
   };
 
+  const [productIndividual, setProductIndividual] = useState({})
+
+  async function fetchProduct(){
+    try {
+      const response = await axios.get(`${BASE_API}/products/${id}`)
+      setProductIndividual(response.data)
+    } catch (error) {
+    }
+  }
+
+ useEffect(() => {
+   fetchProduct()
+ }, [])
+
+ async function handleSelectForCart(producto){
+  try {
+     await axios.get(`${BASE_API}/products/${producto.id}/cart`,{
+      headers:{
+        Authorization:`Bearer ${localStorage.getItem("token")}`
+      }
+    })
+    
+  } catch (error) {
+    alert("Error al agregar producto, reinicie la sesion")
+  }
+}
+
   return (
     <div className="producto-detalle-container">
       <div className="producto-detalle">
         <img
-          src={producto.imagenOriginal}
-          alt={producto.titulo}
+          src={productIndividual?.image}
+          alt={productIndividual?.titulo}
           className="producto-imagen-detalle"
         />
         <div className="producto-info">
-          <h2 className="producto-titulo">{producto.titulo}</h2>
-          <p className="producto-precio">{producto.precio}</p>
+          <h2 className="producto-titulo">{productIndividual?.titulo}</h2>
+          <p className="producto-precio">{productIndividual?.precio}</p>
 
           <div className="tabs">
             <button onClick={() => handleTabClick("descripcion")}>
@@ -337,20 +367,23 @@ const ProductoDetalle = () => {
           <div className="tab-content">
             {selectedTab === "descripcion" && (
               <div>
-                <p>{producto.descripcion}</p>
-                <p>{producto.descripcionExtra}</p>
+                <p>{productIndividual?.description}</p>
+                {/* <p>{productIndividual.descripcionExtra}</p> */}
               </div>
             )}
             {selectedTab === "contenido" && (
-              <ul className="contenido-lista">
-                {producto.contenido.map((item, index) => (
-                  <li key={index} className="contenido-item">
-                    • {item}
-                  </li>
-                ))}
-              </ul>
+              // <ul className="contenido-lista">
+              //   {producto.contenido.map((item, index) => (
+              //     <li key={index} className="contenido-item">
+              //       • {item}
+              //     </li>
+              //   ))}
+              // </ul>
+              <p>
+                {productIndividual.content}
+              </p>
             )}
-            {selectedTab === "detalle" && <p>{producto.detalle}</p>}
+            {selectedTab === "detalle" && <p>{productIndividual?.detail}</p>}
 
             <p>Agrega una dedicatoria (hasta 250 caracteres)</p>
             <textarea
@@ -362,7 +395,7 @@ const ProductoDetalle = () => {
             />
             <button
               className="add-to-cart-button"
-              onClick={handleAddToCart}
+              onClick={()=>handleSelectForCart(productIndividual)}
             >
               AGREGA AL CARRITO Y COMPRA
             </button>
